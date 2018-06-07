@@ -38,7 +38,7 @@ public class CanvasView extends View {
 
     public CanvasView(Context context) {
         this(context, null);
-        mScaleDetector = new ScaleGestureDetector(context,new ScaleListener());
+
     }
 
     public CanvasView(Context context, AttributeSet attributeSet) {
@@ -64,16 +64,7 @@ public class CanvasView extends View {
         mPaint.setStrokeWidth(12); // default: Hairline-width (really thin)
 
     }
-    @Override
-    protected void onSizeChanged(int width, int height,
-                                 int oldWidth, int oldHeight) {
-        super.onSizeChanged(width, height, oldWidth, oldHeight);
-        // Create bitmap, create canvas with bitmap, fill canvas with color.
-        mExtraBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        mExtraCanvas = new Canvas(mExtraBitmap);
-        mExtraCanvas.drawColor(mBackgroundColor);
 
-    }
 
     public void setCoordinates(String coordinates){
         this.coordinates_1 = coordinates;
@@ -88,9 +79,7 @@ public class CanvasView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.save();
-        // Draw the bitmap that has the saved path.
-        canvas.drawBitmap(mExtraBitmap, 0, 0, null);
-        canvas.scale(mScaleFactor,mScaleFactor);
+
 
         Log.e("tata","ondraw");
 
@@ -159,22 +148,11 @@ public class CanvasView extends View {
                 Log.e("x",String.valueOf(x)+String.valueOf(y));
                 break;
         }
-        mScaleDetector.onTouchEvent(event);
+
         return true;
 
     }
 
-    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener{
-        @Override
-        public boolean onScale(ScaleGestureDetector detector) {
-            mScaleFactor*=detector.getScaleFactor();
-
-            mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 5.0f));
-
-            invalidate();
-            return true;
-        }
-    }
 
 
 }
