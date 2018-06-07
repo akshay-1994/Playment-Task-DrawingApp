@@ -3,6 +3,7 @@ package com.playment.playmenttask;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -43,6 +44,9 @@ public class CanvasView extends View {
 
     public CanvasView(Context context, AttributeSet attributeSet) {
         super(context);
+
+
+
 
         mBackgroundColor = ResourcesCompat.getColor(getResources(),
                 R.color.canvasColor, null);

@@ -3,8 +3,11 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#ffffff">
-
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="50dp">
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -27,10 +30,14 @@
         <com.playment.playmenttask.CanvasView
             android:id="@+id/canvas_view"
             android:layout_width="match_parent"
-            android:layout_height="719dp"
-             />
+            android:layout_height="754dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"/>
 
     </FrameLayout>
+</RelativeLayout>
+
+
 
     <SeekBar
 
